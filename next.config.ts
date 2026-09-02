@@ -1,5 +1,10 @@
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = { output: 'export' };
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  assetPrefix: isGitHubPages ? '/klungPROMT/' : '',
+};
 
 export default nextConfig;
